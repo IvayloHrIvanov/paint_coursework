@@ -6,6 +6,8 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 using System.Windows.Forms;
+using Paint_course_work.service;
+using Paint_course_work.utility;
 
 namespace Paint_course_work
 {
@@ -49,15 +51,15 @@ namespace Paint_course_work
         private Ellipse? ellipse;
         private Line? Line;
 
-        private List<IShapes> AllShapes = new List<IShapes>();
-        private HashSet<IShapes> CurrShapesSet = new HashSet<IShapes>();
+        private List<IShapesService> AllShapes = new List<IShapesService>();
+        private HashSet<IShapesService> CurrShapesSet = new HashSet<IShapesService>();
 
-        private List<IShapes> ShapesUndo = new List<IShapes>(20);
-        private List<IShapes> ShapesRedo = new List<IShapes>(20);
+        private List<IShapesService> ShapesUndo = new List<IShapesService>(20);
+        private List<IShapesService> ShapesRedo = new List<IShapesService>(20);
         private List<int> ShapesIndexUndoResized = new List<int>();
         private List<int> ShapesIndexRedoResized = new List<int>();
 
-        private IShapes? shapeWithHighestPriority;
+        private IShapesService? shapeWithHighestPriority;
 
         private Point Point1 = new Point();
         private Point Point2 = new Point();
@@ -789,7 +791,7 @@ namespace Paint_course_work
             {
                 string jsonContent = File.ReadAllText(openFileDialog1.FileName);
 
-                AllShapes = JsonSerializer.Deserialize<List<IShapes>>(jsonContent, new JsonSerializerOptions
+                AllShapes = JsonSerializer.Deserialize<List<IShapesService>>(jsonContent, new JsonSerializerOptions
                 {
                     Converters = { new ObjectConverter() }
                 });
@@ -806,16 +808,16 @@ namespace Paint_course_work
         }
     }
 
-    class ObjectConverter : System.Text.Json.Serialization.JsonConverter<IShapes>
+    class ObjectConverter : System.Text.Json.Serialization.JsonConverter<IShapesService>
     {
-        public override IShapes Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override IShapesService Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             using (JsonDocument doc = JsonDocument.ParseValue(ref reader))
             {
                 var root = doc.RootElement;
                 var type = root.GetProperty("type");
 
-                IShapes shape;
+                IShapesService shape;
 
                 switch (type.GetInt32())
                 {
@@ -865,7 +867,7 @@ namespace Paint_course_work
             }
         }
 
-        public override void Write(Utf8JsonWriter writer, IShapes value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, IShapesService value, JsonSerializerOptions options)
         {
             throw new NotImplementedException();
         }

@@ -1,8 +1,9 @@
 ﻿using System.Drawing;
+using Paint_course_work.service;
 
 namespace Paint_course_work
 {
-    internal class Square : IShapes
+    internal class Square : IShapesService
     {
         public Shape type { get; set; } = Shape.Square;
 
@@ -117,7 +118,7 @@ namespace Paint_course_work
             }
         }
 
-        public IShapes Copy()
+        public IShapesService Copy()
         {
             Square square = new Square(x_coord, y_coord, x_width, color, priority);
 

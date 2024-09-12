@@ -1,8 +1,9 @@
 ﻿using System.Drawing;
+using Paint_course_work.service;
 
 namespace Paint_course_work
 {
-    internal class Rectangle : IShapes
+    internal class Rectangle : IShapesService
     {
         public Shape type { get; set; } = Shape.Rectangle;
 
@@ -97,7 +98,7 @@ namespace Paint_course_work
             }
         }
 
-        public IShapes Copy()
+        public IShapesService Copy()
         {
             Rectangle rectangle = new Rectangle(x_coord, y_coord, x_width, y_height, color, priority);
 

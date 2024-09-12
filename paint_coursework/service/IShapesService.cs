@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace Paint_course_work
+namespace Paint_course_work.service
 {
     public enum Shape
     {
@@ -14,7 +14,7 @@ namespace Paint_course_work
         Line
     }
 
-    internal interface IShapes
+    internal interface IShapesService
     {
         public Shape type { get; set; }
 
@@ -53,6 +53,6 @@ namespace Paint_course_work
 
         public void CallEventForAreaAndParameter();
 
-        public IShapes Copy();
+        public IShapesService Copy();
     }
 }

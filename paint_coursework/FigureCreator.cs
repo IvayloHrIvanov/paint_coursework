@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using Paint_course_work.service;
 
 namespace Paint_course_work
 {
     internal class FigureCreator
     {
-        public void AddOrUpdateShape(List<IShapes> AllShapes, IShapes shapeWithHighestPriority, IShapes shape, string FunctionCase)
+        public void AddOrUpdateShape(List<IShapesService> AllShapes, IShapesService shapeWithHighestPriority, IShapesService shape, string FunctionCase)
         {
             if (FunctionCase == "Move")
             {
@@ -17,7 +18,7 @@ namespace Paint_course_work
             AllShapes.Add(shape);
         }
 
-        public Rectangle? DrawOrFillRectangle(List<IShapes> AllShapes, Point StartDownLocation, Point MouseDownCurrLocation, string FunctionCase, ColorDialog colorPicker, float thickness)
+        public Rectangle? DrawOrFillRectangle(List<IShapesService> AllShapes, Point StartDownLocation, Point MouseDownCurrLocation, string FunctionCase, ColorDialog colorPicker, float thickness)
         {
             Rectangle? rectangle = new Rectangle(
                 Math.Min(StartDownLocation.X, MouseDownCurrLocation.X),
@@ -36,7 +37,7 @@ namespace Paint_course_work
             return rectangle;
         }
 
-        public Rectangle? CopyOrMoveRectangle(List<IShapes> AllShapes, IShapes shapeWithHighestPriority, Point Point1, Point Point2, ColorDialog colorPicker, float thickness)
+        public Rectangle? CopyOrMoveRectangle(List<IShapesService> AllShapes, IShapesService shapeWithHighestPriority, Point Point1, Point Point2, ColorDialog colorPicker, float thickness)
         {
             if (AllShapes.Count > 0)
             {
@@ -63,7 +64,7 @@ namespace Paint_course_work
             }
         }
 
-        public Square? DrawOrFillSquare(List<IShapes> AllShapes, Point StartDownLocation, Point MouseDownCurrLocation, string FunctionCase, ColorDialog colorPicker, float thickness)
+        public Square? DrawOrFillSquare(List<IShapesService> AllShapes, Point StartDownLocation, Point MouseDownCurrLocation, string FunctionCase, ColorDialog colorPicker, float thickness)
         {
             Square? square = new Square(
                 Math.Min(StartDownLocation.X, MouseDownCurrLocation.X),
@@ -81,7 +82,7 @@ namespace Paint_course_work
             return square;
         }
 
-        public Square? CopyOrMoveSquare(List<IShapes> AllShapes, IShapes shapeWithHighestPriority, Point Point1, Point Point2, ColorDialog colorPicker, float thickness)
+        public Square? CopyOrMoveSquare(List<IShapesService> AllShapes, IShapesService shapeWithHighestPriority, Point Point1, Point Point2, ColorDialog colorPicker, float thickness)
         {
             if (AllShapes.Count > 0)
             {
@@ -96,7 +97,7 @@ namespace Paint_course_work
             return null;
         }
 
-        public Rhombus? DrawOrFillRhombus(List<IShapes> AllShapes, Point StartDownLocation, Point MouseDownCurrLocation, string FunctionCase, ColorDialog colorPicker, float thickness)
+        public Rhombus? DrawOrFillRhombus(List<IShapesService> AllShapes, Point StartDownLocation, Point MouseDownCurrLocation, string FunctionCase, ColorDialog colorPicker, float thickness)
         {
             Rhombus? rhombus = new Rhombus(
                 Math.Min(StartDownLocation.X, MouseDownCurrLocation.X),
@@ -113,7 +114,7 @@ namespace Paint_course_work
             return rhombus;
         }
 
-        public Rhombus? CopyOrMoveRhombus(List<IShapes> AllShapes, IShapes shapeWithHighestPriority, Point Point1, Point Point2, ColorDialog colorPicker, float thickness)
+        public Rhombus? CopyOrMoveRhombus(List<IShapesService> AllShapes, IShapesService shapeWithHighestPriority, Point Point1, Point Point2, ColorDialog colorPicker, float thickness)
         {
             if (AllShapes.Count > 0)
             {
@@ -128,7 +129,7 @@ namespace Paint_course_work
             return null;
         }
 
-        public RightAngleTriangle? DrawOrFillRightAngleTriangle(List<IShapes> AllShapes, Point StartDownLocation, Point MouseDownCurrLocation, string FunctionCase, ColorDialog colorPicker, float thickness)
+        public RightAngleTriangle? DrawOrFillRightAngleTriangle(List<IShapesService> AllShapes, Point StartDownLocation, Point MouseDownCurrLocation, string FunctionCase, ColorDialog colorPicker, float thickness)
         {
             RightAngleTriangle rightAngleTriangle = new RightAngleTriangle(
                 Math.Min(StartDownLocation.X, MouseDownCurrLocation.X),
@@ -147,7 +148,7 @@ namespace Paint_course_work
             return rightAngleTriangle;
         }
 
-        public RightAngleTriangle? CopyOrMoveRightAngleTriangle(List<IShapes> AllShapes, IShapes shapeWithHighestPriority, Point Point1, Point Point2, ColorDialog colorPicker, float thickness)
+        public RightAngleTriangle? CopyOrMoveRightAngleTriangle(List<IShapesService> AllShapes, IShapesService shapeWithHighestPriority, Point Point1, Point Point2, ColorDialog colorPicker, float thickness)
         {
             if (AllShapes.Count > 0)
             {
@@ -162,7 +163,7 @@ namespace Paint_course_work
             return null;
         }
 
-        public ObtuseTriangle? DrawOrFillObtuseTriangle(List<IShapes> AllShapes, Point StartDownLocation, Point MouseDownCurrLocation, string FunctionCase, ColorDialog colorPicker, float thickness)
+        public ObtuseTriangle? DrawOrFillObtuseTriangle(List<IShapesService> AllShapes, Point StartDownLocation, Point MouseDownCurrLocation, string FunctionCase, ColorDialog colorPicker, float thickness)
         {
             ObtuseTriangle obtuseTriangle = new ObtuseTriangle(
                 Math.Min(StartDownLocation.X, MouseDownCurrLocation.X),
@@ -181,7 +182,7 @@ namespace Paint_course_work
             return obtuseTriangle;
         }
 
-        public ObtuseTriangle? CopyOrMoveObtuseTriangle(List<IShapes> AllShapes, IShapes shapeWithHighestPriority, Point Point1, Point Point2, ColorDialog colorPicker, float thickness)
+        public ObtuseTriangle? CopyOrMoveObtuseTriangle(List<IShapesService> AllShapes, IShapesService shapeWithHighestPriority, Point Point1, Point Point2, ColorDialog colorPicker, float thickness)
         {
             if (AllShapes.Count > 0)
             {
@@ -196,7 +197,7 @@ namespace Paint_course_work
             return null;
         }
 
-        public EquilateralTriangle? DrawOrFillEquilateralTriangle(List<IShapes> AllShapes, Point StartDownLocation, Point MouseDownCurrLocation, string FunctionCase, ColorDialog colorPicker, float thickness)
+        public EquilateralTriangle? DrawOrFillEquilateralTriangle(List<IShapesService> AllShapes, Point StartDownLocation, Point MouseDownCurrLocation, string FunctionCase, ColorDialog colorPicker, float thickness)
         {
             EquilateralTriangle equilateralTriangle = new EquilateralTriangle(
                 Math.Min(StartDownLocation.X, MouseDownCurrLocation.X),
@@ -215,7 +216,7 @@ namespace Paint_course_work
             return equilateralTriangle;
         }
 
-        public EquilateralTriangle? CopyOrMoveEquilateralTriangle(List<IShapes> AllShapes, IShapes shapeWithHighestPriority, Point Point1, Point Point2, ColorDialog colorPicker, float thickness)
+        public EquilateralTriangle? CopyOrMoveEquilateralTriangle(List<IShapesService> AllShapes, IShapesService shapeWithHighestPriority, Point Point1, Point Point2, ColorDialog colorPicker, float thickness)
         {
             if (AllShapes.Count > 0)
             {
@@ -230,7 +231,7 @@ namespace Paint_course_work
             return null;
         }
 
-        public Ellipse? DrawOrFillEllipse(List<IShapes> AllShapes, Point StartDownLocation, Point MouseDownCurrLocation, string FunctionCase, ColorDialog colorPicker, float thickness)
+        public Ellipse? DrawOrFillEllipse(List<IShapesService> AllShapes, Point StartDownLocation, Point MouseDownCurrLocation, string FunctionCase, ColorDialog colorPicker, float thickness)
         {
             Ellipse ellipse = new Ellipse(
                 Math.Min(StartDownLocation.X, MouseDownCurrLocation.X),
@@ -249,7 +250,7 @@ namespace Paint_course_work
             return ellipse;
         }
 
-        public Ellipse? CopyOrMoveEllipse(List<IShapes> AllShapes, IShapes shapeWithHighestPriority, Point Point1, Point Point2, ColorDialog colorPicker, float thickness)
+        public Ellipse? CopyOrMoveEllipse(List<IShapesService> AllShapes, IShapesService shapeWithHighestPriority, Point Point1, Point Point2, ColorDialog colorPicker, float thickness)
         {
             if (AllShapes.Count > 0)
             {
@@ -264,7 +265,7 @@ namespace Paint_course_work
             return null;
         }
 
-        public Line? DrawLine(List<IShapes> AllShapes, Point StartDownLocation, Point MouseDownCurrLocation, string FunctionCase, ColorDialog colorPicker, float thickness)
+        public Line? DrawLine(List<IShapesService> AllShapes, Point StartDownLocation, Point MouseDownCurrLocation, string FunctionCase, ColorDialog colorPicker, float thickness)
         {
             Line line = new Line(
                 StartDownLocation.X,
@@ -278,7 +279,7 @@ namespace Paint_course_work
             return line;
         }
 
-        public Line? CopyOrMoveLine(List<IShapes> AllShapes, IShapes shapeWithHighestPriority, Point Point1, Point Point2, ColorDialog colorPicker, float thickness)
+        public Line? CopyOrMoveLine(List<IShapesService> AllShapes, IShapesService shapeWithHighestPriority, Point Point1, Point Point2, ColorDialog colorPicker, float thickness)
         {
             if (AllShapes.Count > 0)
             {
@@ -315,7 +316,7 @@ namespace Paint_course_work
             return;
         }
 
-        public void CopyOrMoveRectangleForPreview(PaintEventArgs e, List<IShapes> AllShapes, IShapes shapeWithHighestPriority, Point Point1, Point Point2, float thickness)
+        public void CopyOrMoveRectangleForPreview(PaintEventArgs e, List<IShapesService> AllShapes, IShapesService shapeWithHighestPriority, Point Point1, Point Point2, float thickness)
         {
             if (AllShapes.Count > 0)
             {
@@ -356,7 +357,7 @@ namespace Paint_course_work
             return;
         }
 
-        public void CopyOrMoveSqaureForPreview(PaintEventArgs e, List<IShapes> AllShapes, IShapes shapeWithHighestPriority, Point Point1, Point Point2, float thickness)
+        public void CopyOrMoveSqaureForPreview(PaintEventArgs e, List<IShapesService> AllShapes, IShapesService shapeWithHighestPriority, Point Point1, Point Point2, float thickness)
         {
             if (AllShapes.Count > 0)
             {
@@ -397,7 +398,7 @@ namespace Paint_course_work
             return;
         }
 
-        public void CopyOrMoveRhombusForPreview(PaintEventArgs e, List<IShapes> AllShapes, IShapes shapeWithHighestPriority, Point Point1, Point Point2, float thickness)
+        public void CopyOrMoveRhombusForPreview(PaintEventArgs e, List<IShapesService> AllShapes, IShapesService shapeWithHighestPriority, Point Point1, Point Point2, float thickness)
         {
             if (AllShapes.Count > 0)
             {
@@ -439,7 +440,7 @@ namespace Paint_course_work
             return;
         }
 
-        public void CopyOrMoveRightAngleTriangleForPreview(PaintEventArgs e, List<IShapes> AllShapes, IShapes shapeWithHighestPriority, Point Point1, Point Point2, float thickness)
+        public void CopyOrMoveRightAngleTriangleForPreview(PaintEventArgs e, List<IShapesService> AllShapes, IShapesService shapeWithHighestPriority, Point Point1, Point Point2, float thickness)
         {
             if (AllShapes.Count > 0)
             {
@@ -481,7 +482,7 @@ namespace Paint_course_work
             return;
         }
 
-        public void CopyOrMoveObtuseTriangleForPreview(PaintEventArgs e, List<IShapes> AllShapes, IShapes shapeWithHighestPriority, Point Point1, Point Point2, float thickness)
+        public void CopyOrMoveObtuseTriangleForPreview(PaintEventArgs e, List<IShapesService> AllShapes, IShapesService shapeWithHighestPriority, Point Point1, Point Point2, float thickness)
         {
             if (AllShapes.Count > 0)
             {
@@ -523,7 +524,7 @@ namespace Paint_course_work
             return;
         }
 
-        public void CopyOrMoveEquilateralTriangleForPreview(PaintEventArgs e, List<IShapes> AllShapes, IShapes shapeWithHighestPriority, Point Point1, Point Point2, float thickness)
+        public void CopyOrMoveEquilateralTriangleForPreview(PaintEventArgs e, List<IShapesService> AllShapes, IShapesService shapeWithHighestPriority, Point Point1, Point Point2, float thickness)
         {
             if (AllShapes.Count > 0)
             {
@@ -565,7 +566,7 @@ namespace Paint_course_work
             return;
         }
 
-        public void CopyOrMoveEllipseForPreview(PaintEventArgs e, List<IShapes> AllShapes, IShapes shapeWithHighestPriority, Point Point1, Point Point2, float thickness)
+        public void CopyOrMoveEllipseForPreview(PaintEventArgs e, List<IShapesService> AllShapes, IShapesService shapeWithHighestPriority, Point Point1, Point Point2, float thickness)
         {
             if (AllShapes.Count > 0)
             {
@@ -598,7 +599,7 @@ namespace Paint_course_work
             line.Draw(e.Graphics);
         }
 
-        public void CopyOrMoveLineForPreview(PaintEventArgs e, List<IShapes> AllShapes, Point Point1, Point Point2, float thickness)
+        public void CopyOrMoveLineForPreview(PaintEventArgs e, List<IShapesService> AllShapes, Point Point1, Point Point2, float thickness)
         {
             if (AllShapes.Count > 0)
             {

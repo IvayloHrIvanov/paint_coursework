@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Drawing;
+using Paint_course_work.service;
 
 namespace Paint_course_work
 {
-    internal class Ellipse : IShapes
+    internal class Ellipse : IShapesService
     {
         public Shape type { get; set; } = Shape.Ellipse;
 
@@ -100,7 +101,7 @@ namespace Paint_course_work
             }
         }
 
-        public IShapes Copy()
+        public IShapesService Copy()
         {
             Ellipse elipse = new Ellipse(x_coord, y_coord, x_width, y_height, color, priority);
 

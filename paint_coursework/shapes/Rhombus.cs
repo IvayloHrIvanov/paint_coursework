@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using Paint_course_work.service;
 
 namespace Paint_course_work
 {
-    internal class Rhombus : IShapes
+    internal class Rhombus : IShapesService
     {
         public Shape type { get; set; } = Shape.Rhombus;
 
@@ -134,7 +135,7 @@ namespace Paint_course_work
             }
         }
 
-        public IShapes Copy()
+        public IShapesService Copy()
         {
             Rhombus rhombus = new Rhombus(x_coord, y_coord, x_width, color, priority);
 

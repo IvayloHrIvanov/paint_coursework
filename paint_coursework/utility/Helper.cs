@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using Paint_course_work.service;
 
-namespace Paint_course_work
+namespace Paint_course_work.utility
 {
     internal class Helper
     {
@@ -49,9 +50,9 @@ namespace Paint_course_work
             }
         }
 
-        public IShapes? GetShapeWithHighestPriority(MouseEventArgs e, List<IShapes> AllShapes, HashSet<IShapes> CurrShapesSet)
+        public IShapesService? GetShapeWithHighestPriority(MouseEventArgs e, List<IShapesService> AllShapes, HashSet<IShapesService> CurrShapesSet)
         {
-            IShapes? shapeWithHighestPriority = null;
+            IShapesService? shapeWithHighestPriority = null;
 
             foreach (var shape in AllShapes)
             {
@@ -68,7 +69,7 @@ namespace Paint_course_work
             return shapeWithHighestPriority;
         }
 
-        public void HandleResize(MouseEventArgs e, Form1 form1, List<IShapes> AllShapes, HashSet<IShapes> CurrShapesSet, List<IShapes> ShapesUndo, List<int> ShapesIndexUndoResized)
+        public void HandleResize(MouseEventArgs e, Form1 form1, List<IShapesService> AllShapes, HashSet<IShapesService> CurrShapesSet, List<IShapesService> ShapesUndo, List<int> ShapesIndexUndoResized)
         {
             string? resizeWidth = null;
             string? resizeHeight = null;
@@ -100,7 +101,7 @@ namespace Paint_course_work
                     {
                         if (resizeWidth != "" && resizeHeight != "")
                         {
-                            System.Windows.Forms.MessageBox.Show("Please enter valid numeric values for width and height!");
+                            MessageBox.Show("Please enter valid numeric values for width and height!");
                             continue;
                         }
                         else
@@ -113,7 +114,7 @@ namespace Paint_course_work
                     {
                         if (int.Parse(resizeWidth) != int.Parse(resizeHeight))
                         {
-                            System.Windows.Forms.MessageBox.Show("Please enter the same numeric values for width and height for square and rhombus!");
+                            MessageBox.Show("Please enter the same numeric values for width and height for square and rhombus!");
 
                             isWidthNumber = false;
                             isHeightNumber = false;
@@ -167,9 +168,9 @@ namespace Paint_course_work
             }
         }
 
-        public void HandleDelete(List<IShapes> AllShapes, HashSet<IShapes> CurrShapesSet, List<IShapes> ShapesUndo)
+        public void HandleDelete(List<IShapesService> AllShapes, HashSet<IShapesService> CurrShapesSet, List<IShapesService> ShapesUndo)
         {
-            IShapes? shapeWithHighestPriority = null;
+            IShapesService? shapeWithHighestPriority = null;
 
             if (CurrShapesSet.Count > 1)
             {

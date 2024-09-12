@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Drawing;
+using Paint_course_work.service;
 
 namespace Paint_course_work
 {
-    internal class Line : IShapes
+    internal class Line : IShapesService
     {
         public Shape type { get; set; } = Shape.Line;
 
@@ -113,7 +114,7 @@ namespace Paint_course_work
             throw new NotImplementedException();
         }
 
-        public IShapes Copy()
+        public IShapesService Copy()
         {
             Line line = new Line(x_coord, y_coord, x_width, y_height, color, priority);
 
